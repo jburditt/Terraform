@@ -22,3 +22,14 @@ resource "azurerm_cosmosdb_sql_database" "sql_db" {
   account_name        = azurerm_cosmosdb_account.db_account.name
   throughput          = 400
 }
+
+# outputs.tf
+
+output "endpoint" {
+  value = azurerm_cosmosdb_account.db_account.endpoint
+}
+
+output "connection-string" {
+  value = azurerm_cosmosdb_account.db_account.primary_sql_connection_string
+  sensitive = true
+}
